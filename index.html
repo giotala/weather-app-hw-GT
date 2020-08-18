@@ -1,60 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" 
-    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
-    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" 
-    crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-    <title>Weather App by GT</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/style.css">
+  <title>Weather</title>
 </head>
 <body>
-    <div class="container-fluid">
-        <div style="background-color: rgb(26, 66, 99) ; color: white; padding: 30px;">
-          <h1 class="text-center">
-            <strong>
-              <i class="display-6 "></i>Weather App</strong>
-          </h1>
-          <p class="lead text-center">By GT</p>
-        </div> 
-
-    <div class="container-fluid">
-        <div class="container-fluid float-left col-3">
-            <div class="col"><h3>Search for a City</h3></div> 
-            <div class= "form-group" id="form">
-                <input type="text" class="form-control" id="search-city" placeholder="Search City" >
-                <button class="btn btn-primary" id="run-search"><i class="fa fa-search"></i>Search</button>
-            </div>
-            <!-- after citysearch PREPEND (so it appears on top) where cities will pop-up and when you click the button  city info and fiveday will show on the right side-->
-            <div class="mx-auto">
-                <div id="city-drop"></div>
-            </div>
-        </div>
-           <div class ="w-100"></div>
-           <div class="form col-9 float-right">
-            <div id="city-info" class="col-9"></div>
-            <div id="fiveday" class="col-9" >Fiveday data</div>
+  <header class="container-fluid bg-info text-white">
+    <div class="row justify-content-center">
+      <h1>Weather App</h1>
     </div>
+  </header>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div id="city-list" class="col-md-3 bg-light">
+        <h4 class="mt-3">Search for a City:</h4>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="City Name" aria-label="city name" aria-describedby="basic-addon2">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" id="city-search" type="button"><i class="fas fa-search"></i></button>
+          </div>
+        </div>
+
+        <table class="table table-light border">
+          <tbody>
+            <tr class="border" id="row0"></tr>
+            <tr class="border" id="row1"></tr>
+            <tr class="border" id="row2"></tr>
+            <tr class="border" id="row3"></tr>
+            <tr class="border" id="row4"></tr>
+            <tr class="border" id="row5"></tr>
+            <tr class="border" id="row6"></tr>
+            <tr class="border" id="row7"></tr>
+            <tr class="border" id="row8"></tr>
+            <tr class="border" id="row9"></tr>        
+        </table>
+              
+      </div>
+
+      <div class="col-md-9">
+        
+        <div class="card col-md-12 mt-3 mb-3">
             
+          <div id="forecast" class="card-body pl-0 pr-0">
+            <div class="row">
+              <div id="city-name" class="col-md-auto h3 navbar-text ">City Name</div>
+              <div class="col-md-2"><img id="weather-icon" height="auto" width="auto"></div>
+            </div>
+            <span id="temp-data"></span><br>
+            <span id="hum-data"></span><br>
+            <span id="wind-data"></span><br>
+            <span id="uvi-data"></span><br>
+          </div>
 
+        </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="js.js"></script>
+        <div class="row">
+          
+        </div>
+
+        <div id="five-day-title" class="row">
+          <h3 class="ml-3">5-Day Forecast</h3>
+        </div>
+
+        <div id="five-day-cards" class="row">
+
+        <div class="col-md-2dot4">
+        <div id="five-day-1" class="card bg-info text-white mb-1">
+          <div class="card-body">
+            <h6></h6>
+            <img class="weather-icon" height="auto" width="auto">
+              <p class="temp-5 small"></p>
+              <p class="hum-5 small"></p>
+          </div>
+        </div>
+        </div>
+
+        <div class="col-md-2dot4">
+        <div id="five-day-2" class="card bg-info text-white mb-1">
+          <div class="card-body">
+            <h6></h6>
+            <img class="weather-icon" height="auto" width="auto">
+            <p class="temp-5 small"></p>
+            <p class="hum-5 small"></p>
+          </div>
+        </div>
+        </div>
+
+        <div class="col-md-2dot4">
+          <div id="five-day-3" class="card bg-info text-white mb-1">
+            <div class="card-body">
+              <h6></h6>
+              <img class="weather-icon" height="auto" width="auto">
+              <p class="temp-5 small"></p>
+              <p class="hum-5 small"></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-2dot4">
+          <div id="five-day-4" class="card bg-info text-white mb-1">
+            <div class="card-body">
+              <h6></h6>
+              <img class="weather-icon" height="auto" width="auto">
+              <p class="temp-5 small"></p>
+              <p class="hum-5 small"></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-2dot4">
+          <div id="five-day-5" class="card bg-info text-white mb-1">
+            <div class="card-body">
+              <h6></h6>
+              <img class="weather-icon" height="auto" width="auto">
+              <p class="temp-5 small"></p>
+              <p class="hum-5 small"></p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script src="https://kit.fontawesome.com/f53a07ee43.js" crossorigin="anonymous"></script>
+  <script src='config.js'></script>
+  <script src="js.js"></script>
 </body>
 </html>
-<!-- GIVEN a weather dashboard with form inputs
-WHEN I search for a city
-THEN I am presented with current and future conditions for that city and that city is added to the search history
-WHEN I view current weather conditions for that city
-THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index
-WHEN I view the UV index
-THEN I am presented with a color that indicates whether the conditions are favorable, moderate, or severe
-WHEN I view future weather conditions for that city
-THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, and the humidity
-WHEN I click on a city in the search history
-THEN I am again presented with current and future conditions for that city
-WHEN I open the weather dashboard
-THEN I am presented with the last searched city forecast -->
