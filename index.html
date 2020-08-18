@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" 
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" 
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Weather App by GT</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div style="background-color: rgb(26, 66, 99) ; color: white; padding: 30px;">
+          <h1 class="text-center">
+            <strong>
+              <i class="display-6 "></i>Weather App</strong>
+          </h1>
+          <p class="lead text-center">By GT</p>
+        </div> 
+
+    <div class="container-fluid">
+        <div class="container-fluid float-left col-3">
+            <div class="col"><h3>Search for a City</h3></div> 
+            <div class= "form-group" id="form">
+                <input type="text" class="form-control" id="search-city" placeholder="Search City" >
+                <button class="btn btn-primary" id="run-search"><i class="fa fa-search"></i>Search</button>
+            </div>
+            <!-- after citysearch PREPEND (so it appears on top) where cities will pop-up and when you click the button  city info and fiveday will show on the right side-->
+            <div class="mx-auto">
+                <div id="city-drop"></div>
+            </div>
+        </div>
+           <div class ="w-100"></div>
+           <div class="form col-9 float-right">
+            <div id="city-info" class="col-9"></div>
+            <div id="fiveday" class="col-9" >Fiveday data</div>
+    </div>
+            
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="js.js"></script>
+</body>
+</html>
+<!-- GIVEN a weather dashboard with form inputs
+WHEN I search for a city
+THEN I am presented with current and future conditions for that city and that city is added to the search history
+WHEN I view current weather conditions for that city
+THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index
+WHEN I view the UV index
+THEN I am presented with a color that indicates whether the conditions are favorable, moderate, or severe
+WHEN I view future weather conditions for that city
+THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, and the humidity
+WHEN I click on a city in the search history
+THEN I am again presented with current and future conditions for that city
+WHEN I open the weather dashboard
+THEN I am presented with the last searched city forecast -->
